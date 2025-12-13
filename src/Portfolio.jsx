@@ -108,9 +108,9 @@ const Portfolio = () => {
                 }} />
 
                 {/* Navigation */}
-                <nav className="fixed w-full z-40 top-0 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
-                    <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                        <div className="text-2xl font-black tracking-tighter text-gray-900 dark:text-white z-50 relative" onMouseEnter={() =>
+                <nav className="fixed w-full z-[60] top-0 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
+                    <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-[70]">
+                        <div className="text-2xl font-black tracking-tighter text-gray-900 dark:text-white relative" onMouseEnter={() =>
                             setIsHovering(true)}
                             onMouseLeave={() => setIsHovering(false)}
                         >
@@ -139,7 +139,7 @@ const Portfolio = () => {
                         </div>
 
                         {/* Mobile Menu Toggle */}
-                        <div className="flex items-center gap-4 md:hidden z-50">
+                        <div className="flex items-center gap-4 md:hidden">
                             <button
                                 onClick={toggleTheme}
                                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors text-gray-900 dark:text-white"
@@ -155,7 +155,7 @@ const Portfolio = () => {
                     {/* Mobile Nav Overlay */}
                     {isMenuOpen && (
                         <div
-                            className="fixed inset-0 bg-white dark:bg-neutral-950 flex flex-col items-center justify-center space-y-8 z-40 md:hidden text-gray-900 dark:text-white transition-colors duration-300">
+                            className="fixed inset-0 h-screen w-screen bg-white dark:bg-neutral-950 flex flex-col items-center justify-center space-y-8 z-[50] md:hidden text-gray-900 dark:text-white transition-colors duration-300">
                             {['Work', 'Services', 'About', 'Contact'].map((item) => (
                                 <button key={item} onClick={() => scrollTo(item.toLowerCase())}
                                     className="text-3xl font-bold uppercase tracking-tighter hover:text-lime-600 dark:hover:text-lime-400"
