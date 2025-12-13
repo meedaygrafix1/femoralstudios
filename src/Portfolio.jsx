@@ -155,7 +155,7 @@ const Portfolio = () => {
                     {/* Mobile Nav Overlay */}
                     {isMenuOpen && (
                         <div
-                            className="fixed inset-0 h-screen w-screen bg-white dark:bg-neutral-950 flex flex-col items-center justify-center space-y-8 z-[50] md:hidden text-gray-900 dark:text-white transition-colors duration-300">
+                            className="fixed inset-0 top-0 left-0 h-[100dvh] w-screen bg-white dark:bg-black flex flex-col items-center justify-center space-y-8 z-[50] md:hidden text-gray-900 dark:text-white transition-colors duration-300 pt-20">
                             {['Work', 'Services', 'About', 'Contact'].map((item) => (
                                 <button key={item} onClick={() => scrollTo(item.toLowerCase())}
                                     className="text-3xl font-bold uppercase tracking-tighter hover:text-lime-600 dark:hover:text-lime-400"
