@@ -238,7 +238,7 @@ const Portfolio = () => {
                             <div className="absolute -inset-4 bg-lime-400 rounded-lg blur-xl opacity-20"></div>
                             <div
                                 className="relative aspect-square rounded-lg overflow-hidden bg-white dark:bg-neutral-800 border border-gray-200 dark:border-white/10 group shadow-xl dark:shadow-none">
-                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                                <img src="/assets/creator.jpg"
                                     alt="Femoral Studios Profile"
                                     className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
