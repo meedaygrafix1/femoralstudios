@@ -7,6 +7,7 @@ const Portfolio = () => {
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true);
+    const [activeVideo, setActiveVideo] = useState(null);
 
     // Custom Cursor Logic
     useEffect(() => {
@@ -38,49 +39,49 @@ const Portfolio = () => {
         }
     };
 
-    // Mock Projects Data
+    // Projects Data - YouTube videos use youtubeId, placeholders use image URL
     const projects = [
         {
             id: 1,
-            title: "Neon City Rhythms",
+            title: "Motion Design Ad for CYSIC",
             category: "Motion Graphics",
-            image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
-            desc: "3D Animation / Compositing"
+            youtubeId: "DDfoT00ZH8Y",
+            desc: "Motion Graphics / Ad Design"
         },
         {
             id: 2,
-            title: "Afrobeat Summer",
-            category: "Video Editing",
-            image: "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&q=80&w=800",
-            desc: "Music Video Edit / Color Grade"
+            title: "Spenda Motion Ad",
+            category: "Motion Graphics",
+            youtubeId: "TUyjKM27m4k",
+            desc: "Motion Graphics / Ad Design"
         },
         {
             id: 3,
-            title: "Tech Summit 2024",
+            title: "TACEO x AZTEC Collaboration",
             category: "Motion Graphics",
-            image: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&q=80&w=800",
-            desc: "Event Opener / Typography"
+            youtubeId: "lEqr6SnMQbA",
+            desc: "Animation / Collaboration"
         },
         {
             id: 4,
-            title: "Urban Fashion Week",
-            category: "Color Grading",
-            image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=800",
-            desc: "Commercial Spot"
+            title: "Motion Design Ad for RIALO",
+            category: "Motion Graphics",
+            youtubeId: "jwD9L3STpAU",
+            desc: "Motion Graphics / Ad Design"
         },
         {
             id: 5,
-            title: "Bio-Organic Interface",
+            title: "Motivation Animation",
             category: "Motion Graphics",
-            image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=800",
-            desc: "Abstract Loop (Personal)"
+            youtubeId: "vASUTR9Sh3M",
+            desc: "Animation / Personal"
         },
         {
             id: 6,
-            title: "Lagos Lifestyle",
-            category: "Video Editing",
-            image: "https://images.unsplash.com/photo-1542998966-231a4eb08643?auto=format&fit=crop&q=80&w=800",
-            desc: "Documentary Short"
+            title: "Be Motivated Animation",
+            category: "Motion Graphics",
+            youtubeId: "PQ_HgC3i4a8",
+            desc: "Animation / Personal"
         }
     ];
 
@@ -107,6 +108,33 @@ const Portfolio = () => {
                         cursorPosition.x, top: cursorPosition.y, transform: `translate(-50%, -50%)`
                 }} />
 
+                {/* Video Modal */}
+                {activeVideo && (
+                    <div
+                        className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-8"
+                        onClick={() => setActiveVideo(null)}
+                    >
+                        <button
+                            className="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-lime-400 transition-colors z-[101]"
+                            onClick={() => setActiveVideo(null)}
+                        >
+                            <X size={32} />
+                        </button>
+                        <div
+                            className="relative w-full max-w-5xl aspect-video"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <iframe
+                                className="w-full h-full rounded-lg"
+                                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
+                                title="Video Player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                    </div>
+                )}
+
                 {/* Navigation */}
                 <nav className="fixed w-full z-[60] top-0 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
                     <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-[70]">
@@ -114,7 +142,7 @@ const Portfolio = () => {
                             setIsHovering(true)}
                             onMouseLeave={() => setIsHovering(false)}
                         >
-                            FEMORAL<span className="text-lime-600 dark:text-lime-400">STUDIOS</span>
+                            FEMORAL<span className="text-lime-600 dark:text-lime-400">MOTIONS</span>
                         </div>
 
                         {/* Desktop Nav */}
@@ -202,14 +230,14 @@ const Portfolio = () => {
                                 View Showreel
                                 <Play size={18} fill="black" />
                             </button>
-                            <button onClick={() => scrollTo('contact')}
+                            <a href="mailto:oluwafemiogunmefun193@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Oluwafemi,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you.%0A%0A"
                                 className="px-8 py-4 border border-gray-300 dark:border-white/20 hover:border-lime-600 dark:hover:border-lime-400 hover:text-lime-600 dark:hover:text-lime-400
                     transition-colors duration-300 font-bold uppercase tracking-widest text-gray-900 dark:text-white"
                                 onMouseEnter={() => setIsHovering(true)}
                                 onMouseLeave={() => setIsHovering(false)}
                             >
                                 Get In Touch
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -261,13 +289,13 @@ const Portfolio = () => {
                                 systems.
                             </p>
                             <div className="flex gap-4">
-                                <a href="#"
-                                    className="flex items-center gap-2 text-gray-900 dark:text-white border-b border-lime-600 dark:border-lime-400 pb-1 hover:text-lime-600 dark:hover:text-lime-400 transition-colors"
+                                <a
+                                    href="mailto:oluwafemiogunmefun193@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Oluwafemi,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you.%0A%0A"
+                                    className="px-6 py-3 bg-lime-400 text-black font-bold uppercase tracking-widest hover:bg-lime-500 transition-colors duration-300 inline-block"
                                     onMouseEnter={() => setIsHovering(true)}
                                     onMouseLeave={() => setIsHovering(false)}
                                 >
-                                    Download Resume
-                                    <ExternalLink size={16} />
+                                    Get In Touch
                                 </a>
                             </div>
                         </div>
@@ -276,48 +304,42 @@ const Portfolio = () => {
 
                 {/* Work/Portfolio Section */}
                 <section id="work" className="py-24 px-6 max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-                        <div>
-                            <h2 className="text-sm font-mono text-lime-600 dark:text-lime-400 mb-2">SELECTED WORKS</h2>
-                            <h3 className="text-4xl font-bold text-gray-900 dark:text-white">Recent Projects</h3>
-                        </div>
-
-                        {/* Filter Tabs */}
-                        <div className="flex gap-4 mt-6 md:mt-0 overflow-x-auto pb-2 w-full md:w-auto">
-                            {categories.map(cat => (
-                                <button key={cat} onClick={() => setActiveTab(cat)}
-                                    className={`px-4 py-2 rounded-full border text-sm font-medium whitespace-nowrap transition-all ${activeTab === cat
-                                        ? 'bg-lime-400 border-lime-400 text-black'
-                                        : 'border-gray-200 dark:border-white/20 text-gray-500 dark:text-neutral-400 hover:border-gray-400 dark:hover:border-white hover:text-gray-900 dark:hover:text-white'
-                                        }`}
-                                    onMouseEnter={() => setIsHovering(true)}
-                                    onMouseLeave={() => setIsHovering(false)}
-                                >
-                                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                                </button>
-                            ))}
-                        </div>
+                    <div className="mb-12">
+                        <h2 className="text-sm font-mono text-lime-600 dark:text-lime-400 mb-2">SELECTED WORKS</h2>
+                        <h3 className="text-4xl font-bold text-gray-900 dark:text-white">Recent Projects</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredProjects.map((project) => (
-                            <div key={project.id} className="group relative cursor-pointer" onMouseEnter={() => setIsHovering(true)}
+                            <div
+                                key={project.id}
+                                className="group relative cursor-pointer"
+                                onMouseEnter={() => setIsHovering(true)}
                                 onMouseLeave={() => setIsHovering(false)}
+                                onClick={() => project.youtubeId && setActiveVideo(project.youtubeId)}
                             >
                                 <div className="relative aspect-video bg-gray-200 dark:bg-neutral-800 rounded-lg overflow-hidden border border-gray-200 dark:border-white/5 shadow-md dark:shadow-none">
-                                    <img src={project.image} alt={project.title}
-                                        className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                                    <img
+                                        src={project.youtubeId
+                                            ? `https://img.youtube.com/vi/${project.youtubeId}/maxresdefault.jpg`
+                                            : project.image
+                                        }
+                                        alt={project.title}
+                                        className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                    />
                                     <div
                                         className="absolute inset-0 bg-black/40 dark:bg-black/60 group-hover:bg-transparent transition-colors duration-300">
                                     </div>
 
-                                    {/* Play Button Overlay */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="w-16 h-16 rounded-full bg-lime-400 flex items-center justify-center shadow-lg">
-                                            <Play fill="black" className="ml-1" />
+                                    {/* Play Button Overlay - show for YouTube projects */}
+                                    {project.youtubeId && (
+                                        <div
+                                            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="w-16 h-16 rounded-full bg-lime-400 flex items-center justify-center shadow-lg">
+                                                <Play fill="black" className="ml-1" />
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </div>
 
                                 <div className="mt-4 flex justify-between items-start">
@@ -418,21 +440,13 @@ const Portfolio = () => {
                                 className="p-4 bg-gray-100 dark:bg-neutral-900 rounded-full hover:bg-lime-400 hover:text-black transition-all transform hover:scale-110 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white">
                                 <Twitter />
                             </a>
-                            <a href="#"
-                                className="p-4 bg-gray-100 dark:bg-neutral-900 rounded-full hover:bg-lime-400 hover:text-black transition-all transform hover:scale-110 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white">
-                                <Instagram />
-                            </a>
-                            <a href="#"
-                                className="p-4 bg-gray-100 dark:bg-neutral-900 rounded-full hover:bg-lime-400 hover:text-black transition-all transform hover:scale-110 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white">
-                                <Linkedin />
-                            </a>
                         </div>
                     </div>
                 </section>
 
                 {/* Footer */}
                 <footer className="py-8 text-center text-gray-500 dark:text-neutral-600 text-sm border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-neutral-950 transition-colors duration-300">
-                    <p>© {new Date().getFullYear()} FEMORALSTUDIOS. All Rights Reserved.</p>
+                    <p>© {new Date().getFullYear()} FEMORALMOTIONS. All Rights Reserved.</p>
                 </footer>
             </div>
         </div>
