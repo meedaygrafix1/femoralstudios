@@ -325,11 +325,9 @@ const Portfolio = () => {
                                             : project.image
                                         }
                                         alt={project.title}
-                                        className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                                     />
-                                    <div
-                                        className="absolute inset-0 bg-black/40 dark:bg-black/60 group-hover:bg-transparent transition-colors duration-300">
-                                    </div>
+
 
                                     {/* Play Button Overlay - show for YouTube projects */}
                                     {project.youtubeId && (
