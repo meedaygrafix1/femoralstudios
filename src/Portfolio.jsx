@@ -82,6 +82,13 @@ const Portfolio = () => {
             category: "Motion Graphics",
             youtubeId: "PQ_HgC3i4a8",
             desc: "Animation / Personal"
+        },
+        {
+            id: 7,
+            title: "WalletConnect Pay",
+            category: "Motion Graphics",
+            youtubeId: "VumFRv-JnsI",
+            desc: "Motion Graphics / Ad Design"
         }
     ];
 
