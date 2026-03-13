@@ -89,6 +89,13 @@ const Portfolio = () => {
             category: "Motion Graphics",
             youtubeId: "VumFRv-JnsI",
             desc: "Motion Graphics / Ad Design"
+        },
+        {
+            id: 8,
+            title: "C8ntinuum",
+            category: "Motion Graphics",
+            youtubeId: "PXLP7mTZlXA",
+            desc: "Motion Graphics / Animation"
         }
     ];
 
