@@ -96,6 +96,27 @@ const Portfolio = () => {
             category: "Motion Graphics",
             youtubeId: "PXLP7mTZlXA",
             desc: "Motion Graphics / Animation"
+        },
+        {
+            id: 9,
+            title: "GoDark Product Launch Video",
+            category: "Motion Graphics",
+            youtubeId: "hjykHdyEup8",
+            desc: "Motion Graphics / Product Launch"
+        },
+        {
+            id: 10,
+            title: "Apple Kind of Ad",
+            category: "Motion Graphics",
+            youtubeId: "vOCHIAZZWIM",
+            desc: "Motion Graphics / Ad Design"
+        },
+        {
+            id: 11,
+            title: "Neostore Gadgets Ad Video",
+            category: "Motion Graphics",
+            youtubeId: "lAIrVn1Gzf4",
+            desc: "Motion Graphics / Ad Design"
         }
     ];
 
