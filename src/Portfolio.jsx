@@ -117,12 +117,20 @@ const Portfolio = () => {
             category: "Motion Graphics",
             youtubeId: "lAIrVn1Gzf4",
             desc: "Motion Graphics / Ad Design"
+        },
+        {
+            id: 12,
+            title: "Apple Style UI Animation Ad",
+            category: "Motion Graphics",
+            youtubeId: "Ykhlmo1bsGQ",
+            desc: "Motion Graphics / UI Animation"
         }
     ];
 
-    const filteredProjects = activeTab === 'all'
+    const filteredProjects = (activeTab === 'all'
         ? projects
-        : projects.filter(p => p.category === activeTab);
+        : projects.filter(p => p.category === activeTab)
+    ).slice().reverse();
 
     const categories = ['all', 'Motion Graphics', 'Video Editing', 'Color Grading'];
 
