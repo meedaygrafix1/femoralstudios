@@ -124,6 +124,20 @@ const Portfolio = () => {
             category: "Motion Graphics",
             youtubeId: "Ykhlmo1bsGQ",
             desc: "Motion Graphics / UI Animation"
+        },
+        {
+            id: 13,
+            title: "Logo Animation for Kinlo Brand",
+            category: "Motion Graphics",
+            youtubeId: "5H3_kC8nOs8",
+            desc: "Motion Graphics / Logo Animation"
+        },
+        {
+            id: 14,
+            title: "inDrive Ad Made in After Effects",
+            category: "Motion Graphics",
+            youtubeId: "rIl1sC8potE",
+            desc: "Motion Graphics / Ad Design"
         }
     ];
 
